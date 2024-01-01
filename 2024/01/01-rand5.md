@@ -14,9 +14,7 @@ Using a function rand7() that returns an integer from 1 to 7 (inclusive) with un
 
 We have a 5/7 chance of getting a number in the range. In 2 out of 7 we need to recalculate the value.
 
-P(1...5) = 1/7 + 2/7 \* (1/7 + 2/7 \* (...))
-
-The probability of getting a number between 1 and 5 is 1/7 (The probability from `rand7()`) plus the probability of not getting a number between 1 and 5 (2/7) multiplied by the change of getting a number in the second round plus the probability of not getting it times the probability of the third round.... This could be reduced to 1/5.
+So, the probability of getting a number and that number between 1 and 5 is P(X | X <= 5) = (1/7) / (5/7) = 1/5. So we can guarantee that getting that rand5 is uniform. The only thing we need to do is to recalculate if it's 6 or 7 and that happens 2/7 of the time.
 
 ### Complexity
 
