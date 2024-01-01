@@ -35,18 +35,22 @@ func rand5() -> Int {
 ### Tests
 
 ```Swift
-// Run the code 10,000 times and validate that the probability of each number is 1/5.
+/// Run the code 100,000 times and validate that the probability of each number is 1/5 (20%).
 func test() {
-    var results = Arrray(repeating: 0, count 5)
+  var results = Array(repeating: 0, count: 5)
 
-    for(_ in 0...10_000) {
-        let number = rand5()
+  for _ in 0...100_000 {
+    let number = rand5()
 
-        results[number - 1] += 1 
-    }
+    results[number - 1] += 1
+  }
 
-    for result in results {
-        print(Double(result) / 10_000)
-    }
+  var probabilities = Array(repeating: 0.0, count: 5)
+  
+  for (index, result) in results.enumerated() {
+    probabilities[index] = (Double(result) / 100_000) * 100
+  }
+
+  print(probabilities)
 }
 ```
