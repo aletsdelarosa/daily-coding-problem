@@ -21,7 +21,7 @@ So, the probability of getting a number and that number between 1 and 5 is P(X |
 ### Code
 
 ```Swift
-func rand5() {
+func rand5() -> Int {
     var currentNumber = 0
 
     repeat {
@@ -29,5 +29,24 @@ func rand5() {
     } while (currentNumber > 5)
 
     return currentNumber
+}
+```
+
+### Tests
+
+```Swift
+// Run the code 10,000 times and validate that the probability of each number is 1/5.
+func test() {
+    var results = Arrray(repeating: 0, count 5)
+
+    for(_ in 0...10_000) {
+        let number = rand5()
+
+        results[number - 1] += 1 
+    }
+
+    for result in results {
+        print(Double(result) / 10_000)
+    }
 }
 ```
